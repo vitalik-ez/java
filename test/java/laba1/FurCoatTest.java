@@ -1,4 +1,4 @@
-package com.demo;
+package laba1;
 
 import org.junit.jupiter.api.Test;
 
