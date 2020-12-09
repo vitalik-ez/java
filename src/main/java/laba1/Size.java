@@ -1,4 +1,4 @@
-package com.demo;
+package laba1;
 
 public enum Size {
     EXTRA_SMALL("XS", 5),

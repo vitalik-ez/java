@@ -1,8 +1,7 @@
-package com.demo;
+package laba1;
 
 public class Jacket extends Outerwear{
     private Insulation obj_insulation;
-    private Maker obj_maker;
 
     public Jacket(String color, String material, Size size, String model, int price, String type_insulation){
         super(model, color, material, size);
@@ -10,11 +9,11 @@ public class Jacket extends Outerwear{
         obj_insulation = new Insulation(type_insulation);
         quality = false;
     }
-    public Jacket(String color, String material, Size size, String model, int price, String type_insulation, Maker obj_maker){
-        super(model, color, material, size);
+
+    public Jacket(String color, String material, Size size, String model, int price, String type_insulation, Maker maker){
+        super(model, color, material, size, maker);
         this.price = price;
         obj_insulation = new Insulation(type_insulation);
-        this.obj_maker = obj_maker;
         quality = false;
     }
 
@@ -66,12 +65,6 @@ public class Jacket extends Outerwear{
         if(!obj_insulation.typeInsulation.equals(jacket.obj_insulation.typeInsulation)){
             return false;
         }
-        if(!obj_maker.getName().equals(jacket.obj_maker.getName())){
-            return false;
-        }
-        if(!obj_maker.getLocation().equals(jacket.obj_maker.getLocation())){
-            return false;
-        }
         return getModel().equals(jacket.getModel());
     }
 
@@ -89,7 +82,6 @@ public class Jacket extends Outerwear{
         super.showDescription();
         System.out.println("Insulation: " + obj_insulation.getTypeInsulation());
         System.out.println("Price: " + price);
-        System.out.println("Maker: " + obj_maker.getNameLocation());
         System.out.println();
     }
 

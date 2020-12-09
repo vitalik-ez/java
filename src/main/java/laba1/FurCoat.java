@@ -1,10 +1,17 @@
-package com.demo;
+package laba1;
 
 public class FurCoat extends Outerwear{
     private String fur;
 
     public FurCoat(String model, String color, String material, Size size, String fur, int price){
         super(model, color, material, size);
+        this.fur = fur;
+        this.price = price;
+        quality = false;
+    }
+
+    public FurCoat(String model, String color, String material, Size size, String fur, int price, Maker maker){
+        super(model, color, material, size, maker);
         this.fur = fur;
         this.price = price;
         quality = false;

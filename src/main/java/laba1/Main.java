@@ -1,9 +1,6 @@
-package com.demo;
+package laba1;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args){
@@ -17,8 +14,12 @@ public class Main {
                 "casual", 300, "HOLLOFIBER", obj_maker));
         Outerwears.add(new Jacket("blue", "sintepon", Size.SMALL,
                 "sport", 400, "FLEECE", obj_maker));
-        Outerwears.add(new FurCoat("classic", "brown", "fur", Size.EXTRA_LARGE, "bear", 1000));
-        Outerwears.add(new FurCoat("classic", "brown", "fur", Size.EXTRA_LARGE, "bear", 1000));
+        Outerwears.add(new FurCoat("classic", "brown", "fur",
+                Size.EXTRA_LARGE, "bear", 1000, obj_maker));
+        Outerwears.add(new FurCoat("classic", "brown", "fur",
+                Size.EXTRA_LARGE, "bear", 860, obj_maker));
+
+
 
         Iterator<Outerwear> iter = Outerwears.iterator();
         while (iter.hasNext()) {
