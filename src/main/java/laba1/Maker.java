@@ -8,11 +8,15 @@ public class Maker{
     private String name;
     private String location;
     private Jacket[] jackets;
+    private ArrayList<String> names;
 
     public Maker(String data){
         String[] name_location = data.split(" - ");
         name = name_location[0];
         location = name_location[1];
+        names = new ArrayList<>();
+        names.add(name_location[0]);
+        names.add(name_location[1]);
     }
     public void addJacket(Jacket ...arr_jacket){
         if(arr_jacket.length != 0){
@@ -30,19 +34,12 @@ public class Maker{
         return jacket.increaseSize(size);
     }
 
-    public Optional<Double> getTotalCostJackets(List<Outerwear> outerwears){
-        return ofNullable(outerwears)
-                .map(s -> s.stream()
-                    .filter(c -> !c.getMaterial().equals("fur"))
-                    .mapToDouble(Outerwear::getPrice)
-                    .sum()
-                );
-    }
-
-
 
     public String getName(){
         return name;
+    }
+    public ArrayList<String> getNames(){
+        return names;
     }
     public String getLocation(){
         return location;

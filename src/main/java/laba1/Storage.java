@@ -33,18 +33,16 @@ public class Storage {
         return outerwears.stream().
                 collect(Collectors.partitioningBy(predicateInstance));
     }
-
     public String getTheMostPopularNameMaker(){
         return outerwears.stream()
                 .map(Outerwear::getMaker)
-                .collect(Collectors.groupingBy(Maker::getName, Collectors.counting()))
+                .flatMap(x -> x.getNames().stream())
+                .collect(Collectors.groupingBy(x -> x, Collectors.counting()))
                 .entrySet()
                 .stream()
                 .max(Map.Entry.comparingByValue())
                 .get()
                 .getKey();
     }
-
-
 
 }
