@@ -8,13 +8,13 @@ import org.mockito.Mockito;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class MakerIT {
+class MakerIT {
     @Test
     void increaseSizeJacket_True_IfTheSizeIsIncreasedCorrectly() {
         Maker maker = new Maker("CP Company - Berlin");
         Jacket jacket = Mockito.mock(Jacket.class);
         Mockito.when(jacket.increaseSize("MEDIUM")).thenReturn(Size.valueOf("LARGE"));
-        assertEquals(maker.increaseSizeJacket(jacket, "MEDIUM").toString(), "Size: L");
+        assertEquals("Size: L", maker.increaseSizeJacket(jacket, "MEDIUM").toString());
         Mockito.verify(jacket).increaseSize("MEDIUM");
     }
 }

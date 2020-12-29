@@ -2,8 +2,6 @@ package laba1;
 
 import java.util.*;
 
-import static java.util.Optional.ofNullable;
-
 public class Maker{
     private String name;
     private String location;
@@ -11,16 +9,16 @@ public class Maker{
     private ArrayList<String> names;
 
     public Maker(String data){
-        String[] name_location = data.split(" - ");
-        name = name_location[0];
-        location = name_location[1];
+        String[] nameLocation = data.split(" - ");
+        name = nameLocation[0];
+        location = nameLocation[1];
         names = new ArrayList<>();
-        names.add(name_location[0]);
-        names.add(name_location[1]);
+        names.add(nameLocation[0]);
+        names.add(nameLocation[1]);
     }
-    public void addJacket(Jacket ...arr_jacket){
-        if(arr_jacket.length != 0){
-            jackets = arr_jacket;
+    public void addJacket(Jacket ...jacket){
+        if(jacket.length != 0){
+            jackets = jacket;
         }else{
             jackets = new Jacket[0];
         }
@@ -38,7 +36,7 @@ public class Maker{
     public String getName(){
         return name;
     }
-    public ArrayList<String> getNames(){
+    public List<String> getNames(){
         return names;
     }
     public String getLocation(){

@@ -1,57 +1,59 @@
 package laba1;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.*;
 
 public class Main {
+
+    private static Logger logger = LoggerFactory.getLogger(Main.class.getName());
+
     public static void main(String[] args){
 
-        Maker obj_maker = new Maker("CP Company - Berlin");
-        List<Outerwear> Outerwears = new ArrayList<>();
+        Maker maker = new Maker("CP Company - Berlin");
+        List<Outerwear> outerwears = new ArrayList<>();
 
-        Outerwears.add(new Jacket("black", "polyester", Size.MEDIUM,
-                "modern",200, "FLEECE", obj_maker));
-        Outerwears.add(new Jacket("gray", "cashmere", Size.LARGE,
-                "casual", 300, "HOLLOFIBER", obj_maker));
-        Outerwears.add(new Jacket("blue", "sintepon", Size.SMALL,
-                "sport", 400, "FLEECE", obj_maker));
-        Outerwears.add(new FurCoat("classic", "brown", "fur",
-                Size.EXTRA_LARGE, "bear", 1000, obj_maker));
-        Outerwears.add(new FurCoat("classic", "brown", "fur",
-                Size.EXTRA_LARGE, "bear", 860, obj_maker));
+        outerwears.add(new Jacket("black", "polyester", Size.MEDIUM,
+                "modern",200, "FLEECE", maker));
+        outerwears.add(new Jacket("gray", "cashmere", Size.LARGE,
+                "casual", 300, "HOLLOFIBER", maker));
+        outerwears.add(new Jacket("blue", "sintepon", Size.SMALL,
+                "sport", 400, "FLEECE", maker));
+        outerwears.add(new FurCoat("classic", "brown", "fur",
+                Size.EXTRA_LARGE, "bear", 1000, maker));
+        outerwears.add(new FurCoat("classic", "brown", "fur",
+                Size.EXTRA_LARGE, "bear", 860, maker));
 
 
 
-        Iterator<Outerwear> iter = Outerwears.iterator();
+        Iterator<Outerwear> iter = outerwears.iterator();
         while (iter.hasNext()) {
             iter.next().showDescription();
         }
 
-        for (Outerwear outerwear : Outerwears) {
+        for (Outerwear outerwear : outerwears) {
             try {
                 outerwear.getCheckQuality();
-                System.out.println("The model " + outerwear.getModel() + " has passed the quality test!");
+                logger.info("The model {} has passed the quality test!", outerwear.getModel());
             }catch(QualityException e){
-                System.out.println(e.getMessage());
+                logger.info(e.getMessage());
             }finally {
-                System.out.println("Quality control");
+                logger.info("Quality control");
             }
         }
-//        for (Outerwear outerwear : Outerwears) {
-//            if (!outerwear.getQuality()){
-//                outerwear.repair();
-//            }
-//        }
 
-        if(Outerwears.get(1).equals(Outerwears.get(2))){
-            System.out.println("obj_1 = obj_2");
+
+        if(outerwears.get(1).equals(outerwears.get(2))){
+            logger.info("obj_1 = obj_2");
         }else{
-            System.out.println("obj_1 != obj_2");
+            logger.info("obj_1 != obj_2");
         }
 
-        if(Outerwears.get(3).equals(Outerwears.get(4))){
-            System.out.println("obj_3 = obj_4");
+        if(outerwears.get(3).equals(outerwears.get(4))){
+            logger.info("obj_3 = obj_4");
         }else{
-            System.out.println("obj_3 != obj_4");
+            logger.info("obj_3 != obj_4");
         }
     }
 }

@@ -40,7 +40,7 @@ class MakerTest {
         Maker maker = new Maker("CP Company - Berlin");
         Jacket jacket = Mockito.mock(Jacket.class);
         Mockito.when(jacket.increaseSize("MEDIUM")).thenReturn(Size.valueOf("LARGE"));
-        assertEquals(maker.increaseSizeJacket(jacket, "MEDIUM").toString(), "Size: L");
+        assertEquals("Size: L", maker.increaseSizeJacket(jacket, "MEDIUM").toString());
         Mockito.verify(jacket).increaseSize("MEDIUM");
     }
 

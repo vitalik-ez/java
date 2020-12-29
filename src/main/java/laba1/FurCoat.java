@@ -1,6 +1,10 @@
 package laba1;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class FurCoat extends Outerwear{
+    private static Logger logger = LoggerFactory.getLogger(FurCoat.class.getName());
     private String fur;
 
     public FurCoat(String model, String color, String material, Size size, String fur, int price){
@@ -34,11 +38,11 @@ public class FurCoat extends Outerwear{
         }
     }
 
+    @Override
     public void showDescription(){
         super.showDescription();
-        System.out.println("Fur: " + fur);
-        System.out.println("Price: " + price);
-        System.out.println();
+        logger.info("Fur: {} ", fur);
+        logger.info("Price: {}", price);
     }
 
 }

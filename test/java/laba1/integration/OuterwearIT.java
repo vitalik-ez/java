@@ -8,7 +8,7 @@ import org.mockito.Mockito;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class OuterwearIT {
+class OuterwearIT {
     @Test
     void repair_True_IfTheMaterialHasChangedToPolyester() {
         class Dress extends Outerwear {

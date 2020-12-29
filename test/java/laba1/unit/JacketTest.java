@@ -16,7 +16,7 @@ class JacketTest {
                 "modern",200, "FLEECE", obj_maker);
         Jacket obj_2 = new Jacket("black", "polyester", Size.MEDIUM,
                 "modern",200, "FLEECE", obj_maker);
-        assertTrue(obj_2.equals(obj_1));
+        assertEquals(obj_1, obj_2);
     }
 
     @Test
@@ -26,7 +26,7 @@ class JacketTest {
                 "modern",200, "FLEECE", obj_maker);
         Jacket obj_2 = new Jacket("white", "polyester", Size.MEDIUM,
                 "modern",800, "FLEECE", obj_maker);
-        assertFalse(obj_1.equals(obj_2));
+        assertNotEquals(obj_2, obj_1);
     }
 
     @Test
@@ -59,7 +59,7 @@ class JacketTest {
         Jacket obj = new Jacket("black", "polyester", Size.LARGE,
                 "modern",200, "FLEECE");
 
-        assertEquals(obj.increaseSize("LARGE").toString(), "Size: XL");
-        assertEquals(obj.increaseSize("EXTRA_LARGE").toString(), "Size: XL");
+        assertEquals("Size: XL", obj.increaseSize("LARGE").toString());
+        assertEquals("Size: XL", obj.increaseSize("EXTRA_LARGE").toString());
     }
 }

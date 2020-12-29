@@ -1,4 +1,5 @@
 package laba1.integration;
+
 import laba1.*;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -8,7 +9,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class StorageIT {
+class StorageIT {
 
     @Test
     void getTotalCostJackets_True_ifTotalCostJacketsIsRight(){

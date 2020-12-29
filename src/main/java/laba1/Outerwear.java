@@ -1,7 +1,9 @@
 package laba1;
 
-import java.util.List;
-import java.util.Locale;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.Random;
 
 public abstract class Outerwear implements OuterwearInterface{
     private String model;
@@ -11,15 +13,16 @@ public abstract class Outerwear implements OuterwearInterface{
     private Maker maker;
     protected boolean quality;
     protected double price;
+    private static Logger logger = LoggerFactory.getLogger(Outerwear.class.getName());
 
-    public Outerwear(String model, String color, String material, Size size){
+    protected Outerwear(String model, String color, String material, Size size){
         this.model = model;
         this.color = color;
         this.material = material;
         this.size = size;
     }
 
-    public Outerwear(String model, String color, String material, Size size, Maker maker){
+    protected Outerwear(String model, String color, String material, Size size, Maker maker){
         this.model = model;
         this.color = color;
         this.material = material;
@@ -29,9 +32,7 @@ public abstract class Outerwear implements OuterwearInterface{
 
 
     public boolean getCheckQuality() throws QualityException{
-//        Random random_quality = new Random();
-//        quality = random_quality.nextBoolean();
-        quality = false;
+        quality = new Random().nextBoolean();
         if(!quality){
             throw new QualityException("The model " + model + " hasn't passed the quality test");
         }
@@ -43,11 +44,10 @@ public abstract class Outerwear implements OuterwearInterface{
     }
 
     public void showDescription(){
-        System.out.println("Model: " + model);
-        System.out.println("Material: " + material);
-        System.out.println("Color: " + color);
-        System.out.println(size);
-        System.out.println("Number: " + size.getNum());
+        logger.info("Model: {}", model);
+        logger.info("Material: {}", material);
+        logger.info("Color: {}", color);
+        logger.info("Number: {}", size.getNum());
     }
     public String getModel(){
         return model;
@@ -71,10 +71,6 @@ public abstract class Outerwear implements OuterwearInterface{
     public void setSize(Size size) {
         this.size = size;
     }
-
-    public abstract void setPrice(double price);
-    public abstract void setPrice(double price, double discount);
-
 
     @Override
     public String toString() {

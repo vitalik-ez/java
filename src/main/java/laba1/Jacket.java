@@ -1,19 +1,24 @@
 package laba1;
 
-public class Jacket extends Outerwear{
-    private Insulation obj_insulation;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-    public Jacket(String color, String material, Size size, String model, int price, String type_insulation){
+public class Jacket extends Outerwear{
+
+    private static Logger logger = LoggerFactory.getLogger(Jacket.class.getName());
+    private Insulation insulation;
+
+    public Jacket(String color, String material, Size size, String model, int price, String insulation){
         super(model, color, material, size);
         this.price = price;
-        obj_insulation = new Insulation(type_insulation);
+        this.insulation = new Insulation(insulation);
         quality = false;
     }
 
-    public Jacket(String color, String material, Size size, String model, int price, String type_insulation, Maker maker){
+    public Jacket(String color, String material, Size size, String model, int price, String insulation, Maker maker){
         super(model, color, material, size, maker);
         this.price = price;
-        obj_insulation = new Insulation(type_insulation);
+        this.insulation = new Insulation(insulation);
         quality = false;
     }
 
@@ -34,9 +39,9 @@ public class Jacket extends Outerwear{
     }
 
     public Size increaseSize(String size){
-        int num_size = Size.valueOf(size).ordinal();
-        if(num_size < 4){
-            setSize(Size.values()[num_size + 1]);
+        int numSize = Size.valueOf(size).ordinal();
+        if(numSize < 4){
+            setSize(Size.values()[numSize + 1]);
         }
         return getSize();
     }
@@ -62,7 +67,7 @@ public class Jacket extends Outerwear{
         if(price != jacket.price){
             return false;
         }
-        if(!obj_insulation.typeInsulation.equals(jacket.obj_insulation.typeInsulation)){
+        if(!insulation.typeInsulation.equals(jacket.insulation.typeInsulation)){
             return false;
         }
         return getModel().equals(jacket.getModel());
@@ -78,11 +83,12 @@ public class Jacket extends Outerwear{
         this.price = price - price * discount/100;
     }
 
+    @Override
     public void showDescription(){
         super.showDescription();
-        System.out.println("Insulation: " + obj_insulation.getTypeInsulation());
-        System.out.println("Price: " + price);
-        System.out.println();
+        logger.info("Insulation: {}", insulation.getTypeInsulation());
+        logger.info("Price: {}", price);
+
     }
 
 
