@@ -23,6 +23,10 @@ public class Matrix implements Calculation{
         return determinant;
     }
 
+    public double[][] getMatrix(){
+        return matrix;
+    }
+
     @Override
     public double getDeterminant() {
         return determinant;

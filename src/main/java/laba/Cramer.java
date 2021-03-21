@@ -2,7 +2,7 @@ package laba;
 
 public class Cramer extends Matrix {
 
-    private final double[] column;
+    private double[] column;
     private double[] result;
     private boolean noSolutions;
 
@@ -13,7 +13,7 @@ public class Cramer extends Matrix {
     }
 
     @Init(name="Cramer's method")
-    public void calcMatrix(){
+    public double[] calcMatrix(){
         result = new double[3];
         double delta = super.calcDeterminant();
         if (delta != 0) {
@@ -30,17 +30,26 @@ public class Cramer extends Matrix {
             }
         } else {
             noSolutions = true;
+            result = null;
         }
+        return result;
     }
 
     public double[] getResult(){
         return result;
     }
-
-    @Override
-    public String toString() {
-        return "Result: x1=" + result[0] + " x2=" + result[1] + " x3=" + result[2];
+    public double[] getColumn(){
+        return column;
     }
+    public void setColumn(double[] column){
+        this.column = column;
+    }
+
+
+//    @Override
+//    public String toString() {
+//        return "Result: x1=" + result[0] + " x2=" + result[1] + " x3=" + result[2];
+//    }
 
     public boolean isNoSolutions() {
         return noSolutions;

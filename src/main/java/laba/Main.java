@@ -12,6 +12,11 @@ public class Main {
 
         Cramer cramer = new Cramer(matr, column);
         cramer.calcMatrix();
-        System.out.println(cramer);
+        CramerView view = new CramerView();
+
+        CramerController controller = new CramerController(cramer, view);
+        controller.calcCramerMatrix();
+        controller.updateView();
+
     }
 }
