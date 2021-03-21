@@ -4,6 +4,8 @@ public class Cramer extends Matrix {
 
     private final double[] column;
     private double[] result;
+    private boolean noSolutions;
+
 
     public Cramer(double[][] matrix, double[] column){
         super(matrix);
@@ -14,18 +16,20 @@ public class Cramer extends Matrix {
     public void calcMatrix(){
         result = new double[3];
         double delta = super.calcDeterminant();
-        if (delta != 0){
-            for(int i = 0; i < matrix.length; i++){
+        if (delta != 0) {
+            for (int i = 0; i < matrix.length; i++) {
                 double[] copy = new double[3];
-                for(int j = 0; j < matrix.length; j++){
+                for (int j = 0; j < matrix.length; j++) {
                     copy[j] = matrix[j][i];
                     matrix[j][i] = column[j];
                 }
                 result[i] = super.calcDeterminant() / delta;
-                for(int j = 0; j < matrix.length; j++){
+                for (int j = 0; j < matrix.length; j++) {
                     matrix[j][i] = copy[j];
                 }
             }
+        } else {
+            noSolutions = true;
         }
     }
 
@@ -36,5 +40,9 @@ public class Cramer extends Matrix {
     @Override
     public String toString() {
         return "Result: x1=" + result[0] + " x2=" + result[1] + " x3=" + result[2];
+    }
+
+    public boolean isNoSolutions() {
+        return noSolutions;
     }
 }
