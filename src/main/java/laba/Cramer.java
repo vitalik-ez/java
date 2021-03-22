@@ -2,12 +2,12 @@ package laba;
 
 public class Cramer extends Matrix {
 
-    private double[] column;
+    private int[] column;
     private double[] result;
     private boolean noSolutions;
 
 
-    public Cramer(double[][] matrix, double[] column){
+    public Cramer(int[][] matrix, int[] column){
         super(matrix);
         this.column = column;
     }
@@ -18,7 +18,7 @@ public class Cramer extends Matrix {
         double delta = super.calcDeterminant();
         if (delta != 0) {
             for (int i = 0; i < matrix.length; i++) {
-                double[] copy = new double[3];
+                int[] copy = new int[3];
                 for (int j = 0; j < matrix.length; j++) {
                     copy[j] = matrix[j][i];
                     matrix[j][i] = column[j];
@@ -38,10 +38,10 @@ public class Cramer extends Matrix {
     public double[] getResult(){
         return result;
     }
-    public double[] getColumn(){
+    public int[] getColumn(){
         return column;
     }
-    public void setColumn(double[] column){
+    public void setColumn(int[] column){
         this.column = column;
     }
 

@@ -4,11 +4,11 @@ package laba;
 
 public class Matrix implements Calculation{
     @Show(name="Matrix")
-    protected double[][] matrix;
+    protected int[][] matrix;
     @Show(name="determinant")
     public double determinant;
 
-    public Matrix(double[][] matrix){
+    public Matrix(int[][] matrix){
         this.matrix = matrix;
     }
 
@@ -23,8 +23,11 @@ public class Matrix implements Calculation{
         return determinant;
     }
 
-    public double[][] getMatrix(){
+    public int[][] getMatrix(){
         return matrix;
+    }
+    public void setMatrix(int[][] matrix){
+        this.matrix = matrix;
     }
 
     @Override
