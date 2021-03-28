@@ -1,5 +1,8 @@
 package laba;
 
+import laba.controller.CramerController;
+import laba.model.Cramer;
+import laba.view.CramerView;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

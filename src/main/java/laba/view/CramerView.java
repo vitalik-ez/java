@@ -1,4 +1,4 @@
-package laba;
+package laba.view;
 
 public class CramerView {
     public void printCramerDetails(int[][] matr, int[] column, double[] result){
@@ -14,6 +14,10 @@ public class CramerView {
             System.out.print(column[i] + " ");
         }
         System.out.println();
+        this.printResult(result);
+    }
+
+    public void printResult(double[] result){
         System.out.println("Result:");
         for (int i = 0; i < result.length; i++) {
             System.out.print(result[i] + " ");

@@ -1,16 +1,24 @@
-package laba;
+package laba.model;
+
+import laba.Init;
 
 public class Cramer extends Matrix {
 
-    private int[] column;
-    private double[] result;
+    static private int[] column;
+    static private double[] result;
     private boolean noSolutions;
 
+    private static Cramer instance = new Cramer();
 
-    public Cramer(int[][] matrix, int[] column){
-        super(matrix);
-        this.column = column;
+    public static Cramer getInstance(){
+        return instance;
     }
+
+//    public Cramer(int[][] matrix, int[] column){
+//        //super(matrix);
+//        this.matrix = matrix;
+//        this.column = column;
+//    }
 
     @Init(name="Cramer's method")
     public double[] calcMatrix(){
@@ -45,11 +53,6 @@ public class Cramer extends Matrix {
         this.column = column;
     }
 
-
-//    @Override
-//    public String toString() {
-//        return "Result: x1=" + result[0] + " x2=" + result[1] + " x3=" + result[2];
-//    }
 
     public boolean isNoSolutions() {
         return noSolutions;

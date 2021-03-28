@@ -1,16 +1,25 @@
-package laba;
+package laba.model;
 
 
+import laba.Calculation;
+import laba.Init;
+import laba.Show;
 
-public class Matrix implements Calculation{
+public class Matrix implements Calculation {
     @Show(name="Matrix")
-    protected int[][] matrix;
+    static public int[][] matrix;
     @Show(name="determinant")
     public double determinant;
 
-    public Matrix(int[][] matrix){
-        this.matrix = matrix;
+    private static Matrix instance = new Matrix();
+    public static Matrix getInstance(){
+        return instance;
     }
+
+    /*public Matrix(int[][] matrix){
+        this.matrix = matrix;
+    }*/
+
 
     @Init(name="Calculate determinant")
     public double calcDeterminant(){

@@ -1,14 +1,29 @@
-package laba;
+package laba.controller;
 
+import laba.controller.commands.Command;
+import laba.controller.commands.CommandFactory;
+import laba.controller.commands.ExitCommand;
+import laba.model.Cramer;
+import laba.view.CramerView;
+
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class CramerController {
     private Cramer model;
     private CramerView view;
 
+    private CommandFactory commandFactory = CommandFactory.getInstance();
+    private Map<String, Command> commands = new HashMap<>();
+
     public CramerController(Cramer model, CramerView view) {
         this.model = model;
         this.view = view;
+        for(String commandName : commandFactory.getCommandNames() ){
+            commandFactory.createCommand(commandName)
+                    .ifPresent( command -> commands.put(commandName, command) );
+        }
     }
 
     public double[] getCramerResult() {
@@ -50,4 +65,21 @@ public class CramerController {
     public void updateView() {
         view.printCramerDetails(model.getMatrix(), model.getColumn(), model.getResult());
     }
+
+    public void inputCommand(){
+        Scanner sc= new Scanner(System.in);
+        System.out.print("Enter a command: ");
+        String commandName = sc.nextLine();
+        System.out.println("You have entered: "+commandName);
+        if (commandName.equals("exit") || commandName.equals("calcMatrix")){
+            System.out.println(model.getMatrix()[0][0]);
+            Command command = commands.getOrDefault(commandName, ExitCommand.getInstance());
+            double[] result = command.execute();
+            this.view.printResult(result);
+        } else {
+            System.out.println("You entered the wrong command: " + commandName);
+        }
+
+    }
+
 }

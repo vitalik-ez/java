@@ -1,2 +1,4 @@
 
-X	java:S125	"<This block of commented-out lines of code should be removed.(üÒüÿ8´ÍÏ³…/
+X	java:S125"<This block of commented-out lines of code should be removed.(û¦Ì›8·Ä×Î…/
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(¤·è€ÿÿÿÿÿ8–áÎ…/
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(¸‘Ç¶úÿÿÿÿ8ëåëÎ…/
