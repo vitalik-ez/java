@@ -1,5 +1,7 @@
 package laba.controller.commands;
 
+import laba.model.Cramer;
+
 public class ExitCommand implements Command{
 
     private static ExitCommand exitCommand = new ExitCommand();
@@ -9,7 +11,7 @@ public class ExitCommand implements Command{
     }
 
     @Override
-    public double[] execute() {
+    public double[] execute(Cramer cramer) {
         System.exit(0);
         return null;
     }

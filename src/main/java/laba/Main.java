@@ -9,6 +9,38 @@ public class Main {
 
     public static void main(String[] args) {
 
+        int[][] matr = {{2,-1,3}, {3, -5, 1}, {4, -7, 1}};
+        int[] column = {9,-4, 5};
+
+        CramerView view = new CramerView();
+        Cramer cramer = new Cramer(matr, column);
+
+        CramerController controller = new CramerController(cramer, view);
+        controller.dataEntry();
+
+        controller.calcCramerMatrix();
+        controller.inputCommand();
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //        int[][] matr = new int[3][3];
 //        int[] column = new int[3];
 
@@ -25,7 +57,7 @@ public class Main {
 //        }
 //        int[][] matr = {{2,-1,0}, {-1,1,4}, {1,2,3}};
 //        int[] column = {0,13,14};
-        // не мають рішення
+// не мають рішення
 //        double[][] matr = {{2,-1,3}, {3, -5, 1}, {4, -7, 1}};
 //        double[] column = {9,-4, 5};
 
@@ -37,12 +69,3 @@ public class Main {
 //        CramerController controller = new CramerController(cramer, view);
 //        controller.calcCramerMatrix();
 //        controller.updateView();
-        CramerView view = new CramerView();
-        Cramer cramer = new Cramer();
-
-        CramerController controller = new CramerController(cramer, view);
-        controller.dataEntry();
-
-        controller.inputCommand();
-    }
-}

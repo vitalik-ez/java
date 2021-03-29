@@ -4,6 +4,9 @@ import laba.controller.commands.Command;
 import laba.controller.commands.CommandFactory;
 import laba.controller.commands.ExitCommand;
 import laba.model.Cramer;
+import laba.strategy.AddStrategy;
+import laba.strategy.Context;
+import laba.strategy.MultiplyStrategy;
 import laba.view.CramerView;
 
 import java.util.HashMap;
@@ -65,17 +68,35 @@ public class CramerController {
     public void updateView() {
         view.printCramerDetails(model.getMatrix(), model.getColumn(), model.getResult());
     }
+    public void changeMatrixView(int[][] matr){ view.printChangedMatrix(matr);}
 
     public void inputCommand(){
+
         Scanner sc= new Scanner(System.in);
-        System.out.print("Enter a command: ");
+        System.out.println("Enter a command: ");
         String commandName = sc.nextLine();
         System.out.println("You have entered: "+commandName);
         if (commandName.equals("exit") || commandName.equals("calcMatrix")){
-            System.out.println(model.getMatrix()[0][0]);
             Command command = commands.getOrDefault(commandName, ExitCommand.getInstance());
-            double[] result = command.execute();
+            double[] result = command.execute(model);
             this.view.printResult(result);
+
+            System.out.println();
+            System.out.print("Enter a strategy: ");
+            String strategyName = sc.nextLine();
+            System.out.print("Enter a number: ");
+            int number = sc.nextInt();
+            Context context = new Context();
+            int[][] matr;
+            if ( strategyName.equals("add") ){
+                context.setStrategy(new AddStrategy());
+                matr = context.executeStrategy(this.model.getMatrix(), number);
+            } else {
+                context.setStrategy(new MultiplyStrategy());
+                matr = context.executeStrategy(this.model.getMatrix(), number);
+            }
+            this.changeMatrixView(matr);
+
         } else {
             System.out.println("You entered the wrong command: " + commandName);
         }

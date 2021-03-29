@@ -2,38 +2,34 @@ package laba.model;
 
 import laba.Init;
 
-public class Cramer extends Matrix {
-
+public class Cramer implements Calculation {
+    private Matrix matrix;
     static private int[] column;
     static private double[] result;
     private boolean noSolutions;
+    public int[][] matr;
+    private double determinant;
 
-    private static Cramer instance = new Cramer();
 
-    public static Cramer getInstance(){
-        return instance;
+    public Cramer(int[][] matrix, int[] column){
+        this.matr = matrix;
+        this.column = column;
     }
-
-//    public Cramer(int[][] matrix, int[] column){
-//        //super(matrix);
-//        this.matrix = matrix;
-//        this.column = column;
-//    }
 
     @Init(name="Cramer's method")
     public double[] calcMatrix(){
         result = new double[3];
-        double delta = super.calcDeterminant();
+        double delta = calculate(matr);
         if (delta != 0) {
-            for (int i = 0; i < matrix.length; i++) {
+            for (int i = 0; i < matr.length; i++) {
                 int[] copy = new int[3];
-                for (int j = 0; j < matrix.length; j++) {
-                    copy[j] = matrix[j][i];
-                    matrix[j][i] = column[j];
+                for (int j = 0; j < matr.length; j++) {
+                    copy[j] = matr[j][i];
+                    matr[j][i] = column[j];
                 }
-                result[i] = super.calcDeterminant() / delta;
-                for (int j = 0; j < matrix.length; j++) {
-                    matrix[j][i] = copy[j];
+                result[i] = calculate(matr) / delta;
+                for (int j = 0; j < matr.length; j++) {
+                    matr[j][i] = copy[j];
                 }
             }
         } else {
@@ -53,8 +49,22 @@ public class Cramer extends Matrix {
         this.column = column;
     }
 
+    public int[][] getMatrix(){
+        return matr;
+    }
+    public void setMatrix(int[][] matrix){
+        this.matr = matrix;
+    }
 
     public boolean isNoSolutions() {
         return noSolutions;
+    }
+
+    @Override
+    public double calculate(int[][] matr) {
+        if (matrix == null){
+            matrix = new Matrix();
+        }
+        return matrix.calculate(this.matr);
     }
 }

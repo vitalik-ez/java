@@ -23,4 +23,13 @@ public class CramerView {
             System.out.print(result[i] + " ");
         }
     }
+    public void printChangedMatrix(int[][] matr){
+        System.out.println("Changed matrix:");
+        for (int[] row : matr) {
+            for (int j = 0; j < row.length; j++) {
+                System.out.print(row[j] + " ");
+            }
+            System.out.println();
+        }
+    }
 }

@@ -1,0 +1,16 @@
+
+7
+java:S1700	"Rename field "matrix"(ÿß‡Ôûÿÿÿÿ8õçÒÑ‡/
+_
+java:S2184"BCast one of the operands of this addition operation to a "double".(ïðàâ8ÖªÓ‡/
+=
+java:S2386&"!Make member "matrix" "protected".(Í¹ÿ>8×ú²Õ‡/
+R
+java:S2696&"6Make the enclosing method "static" or remove this set.(Í¹ÿ>8’©²Õ‡/
+N
+java:S1444	",Make this "public static matrix" field final(ÿß‡Ôûÿÿÿÿ8×ú²Õ‡/
+g
+java:S1124	"EReorder the modifiers to comply with the Java Language Specification.(ÿß‡Ôûÿÿÿÿ8×ú²Õ‡/
+]	java:S125"<This block of commented-out lines of code should be removed.(Õ£ñŒûÿÿÿÿ8õÕÕ‡/
+Q
+java:S2209&"5Change this instance-reference to a static reference.(Í¹ÿ>8’©²Õ‡/
