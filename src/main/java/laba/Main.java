@@ -1,28 +1,35 @@
 package laba;
 import laba.controller.CramerController;
-import laba.model.Cramer;
-import laba.view.CramerView;
-
-import java.util.Scanner;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        int[][] matr = {{2,-1,3}, {3, -5, 1}, {4, -7, 1}};
-        int[] column = {9,-4, 5};
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("context.xml");
 
-        CramerView view = new CramerView();
-        Cramer cramer = new Cramer(matr, column);
-
-        CramerController controller = new CramerController(cramer, view);
+        CramerController controller = context.getBean(CramerController.class);
         controller.dataEntry();
-
-        controller.calcCramerMatrix();
         controller.inputCommand();
+        context.close();
     }
 }
 
+
+
+//      int[][] matr = {{2,-1,3}, {3, -5, 1}, {4, -7, 1}};
+//      int[] column = {9,-4, 5};
+//
+//      Cramer cramer = new Cramer(matr, column);
+//      CramerView view = new CramerView();
+//      Cramer cramer = new Cramer(matr, column);
+//
+//      CramerController controller = new CramerController(cramer, view);
+//      controller.dataEntry();
+//
+//      controller.calcCramerMatrix();
+//      controller.inputCommand();
 
 
 

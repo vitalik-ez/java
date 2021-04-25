@@ -2,23 +2,21 @@ package laba.model;
 
 import laba.Init;
 
-public class Cramer implements Calculation {
+public class Cramer{
+
     private Matrix matrix;
     static private int[] column;
     static private double[] result;
     private boolean noSolutions;
-    public int[][] matr;
-    private double determinant;
 
-
-    public Cramer(int[][] matrix, int[] column){
-        this.matr = matrix;
-        this.column = column;
+    public void setMatrix(Matrix matrix){
+        this.matrix = matrix;
     }
 
     @Init(name="Cramer's method")
     public double[] calcMatrix(){
         result = new double[3];
+        int[][] matr = matrix.getMatrix();
         double delta = calculate(matr);
         if (delta != 0) {
             for (int i = 0; i < matr.length; i++) {
@@ -50,21 +48,18 @@ public class Cramer implements Calculation {
     }
 
     public int[][] getMatrix(){
-        return matr;
+        return matrix.getMatrix();
     }
-    public void setMatrix(int[][] matrix){
-        this.matr = matrix;
+
+    public void setMatr(int[][] matr){
+        this.matrix.setMatrix(matr);
     }
 
     public boolean isNoSolutions() {
         return noSolutions;
     }
 
-    @Override
     public double calculate(int[][] matr) {
-        if (matrix == null){
-            matrix = new Matrix();
-        }
-        return matrix.calculate(this.matr);
+        return matrix.calculate(matr);
     }
 }

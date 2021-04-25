@@ -1,5 +1,9 @@
 package laba.view;
 
+
+import org.springframework.stereotype.Component;
+
+@Component
 public class CramerView {
     public void printCramerDetails(int[][] matr, int[] column, double[] result){
         System.out.println("Matrix:");

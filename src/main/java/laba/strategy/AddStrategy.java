@@ -1,7 +1,8 @@
 package laba.strategy;
 
-import laba.strategy.Strategy;
+import org.springframework.stereotype.Component;
 
+@Component
 public class AddStrategy implements Strategy {
 
     @Override

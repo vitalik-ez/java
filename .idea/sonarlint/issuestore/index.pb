@@ -41,5 +41,3 @@ X
 ,src/main/java/laba/strategy/AddStrategy.java,4\9\49dc8c93e9da969084368f0103df6c3011847c19
 Y
 )src/main/java/laba/model/Calculation.java,1\d\1d8228e22b15c83e43a939ab939402cc39741475
-\
-,src/main/java/laba/model/CramerAbstract.java,e\d\ed689d116c95a0dbcfb1bf131dc8ba26d6d42365

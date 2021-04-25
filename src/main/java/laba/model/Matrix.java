@@ -1,7 +1,5 @@
 package laba.model;
 
-
-import laba.Init;
 import laba.Show;
 
 public class Matrix implements Calculation {

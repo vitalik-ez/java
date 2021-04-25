@@ -1,20 +1,24 @@
 
-X
-java:S2696)"6Make the enclosing method "static" or remove this set.(‘óÖıÿÿÿÿ8ÕÔ¾Õ‡/
-X
-java:S2696""6Make the enclosing method "static" or remove this set.(šÎæòùÿÿÿÿ8ÕÔ¾Õ‡/
-X
-java:S2696$"6Make the enclosing method "static" or remove this set.(å¡‹Ëùÿÿÿÿ8ÕÔ¾Õ‡/
-g
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(¼ ‡ªøÿÿÿÿ8ßİ´Õ‡/
-X
-java:S2696"6Make the enclosing method "static" or remove this set.(„šÉ°ùÿÿÿÿ8ÕÔ¾Õ‡/
-X	java:S125"<This block of commented-out lines of code should be removed.(ù¦‚Æ8ÈÒæÔ‡/
-b
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(åã’ª8ÕÔ¾Õ‡/
-X
-java:S26965"6Make the enclosing method "static" or remove this set.(‚ù‘˜ûÿÿÿÿ8ßİ´Õ‡/
-X
-java:S2696 "6Make the enclosing method "static" or remove this set.(Ğ¬óÌıÿÿÿÿ8ÕÔ¾Õ‡/
 W
-java:S22095"5Change this instance-reference to a static reference.(‚ù‘˜ûÿÿÿÿ8ßİ´Õ‡/
+java:S2209"5Change this instance-reference to a static reference.(‚ù‘˜ûÿÿÿÿ8Ùç…ï‡/
+W
+java:S22091"5Change this instance-reference to a static reference.(‚ù‘˜ûÿÿÿÿ8üÒĞï‡/
+X
+java:S26961"6Make the enclosing method "static" or remove this set.(‚ù‘˜ûÿÿÿÿ8üÒĞï‡/
+X
+java:S2696"6Make the enclosing method "static" or remove this set.(„šÉ°ùÿÿÿÿ8àêóî‡/
+L
+java:S1068"/Remove this unused "determinant" private field.(Ü´«Õ8òÀĞï‡/
+X
+java:S2696%"6Make the enclosing method "static" or remove this set.(‘óÖıÿÿÿÿ8üÒĞï‡/
+E
+java:S3010"#Remove this assignment of "column".(‚ù‘˜ûÿÿÿÿ8Ùç…ï‡/
+m
+java:S1104
+"PMake matr a static final constant or non-public and provide accessors if needed.(‡ßâ¿8àêóî‡/
+b
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(åã’ª8àêóî‡/
+S
+java:S2696"6Make the enclosing method "static" or remove this set.(ç¼ÖØ8üÒĞï‡/
+g
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(¼ ‡ªøÿÿÿÿ8àêóî‡/
